@@ -1,11 +1,8 @@
-package com.ozcanalasalvar.library.factory;
+package com.ozcanalasalvar.library.factory
 
-public interface DateFactoryListener {
-    void onYearChanged();
-
-    void onMonthChanged();
-
-    void onDayChanged();
-
-    void onConfigsChanged();
+interface DateFactoryListener {
+    fun onYearChanged()
+    fun onMonthChanged()
+    fun onDayChanged()
+    fun onConfigsChanged()
 }

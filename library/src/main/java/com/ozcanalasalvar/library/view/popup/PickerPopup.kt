@@ -1,42 +1,35 @@
-package com.ozcanalasalvar.library.view.popup;
+package com.ozcanalasalvar.library.view.popup
 
-import android.content.Context;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.content.Context
+import android.view.View
+import android.widget.LinearLayout
+import android.widget.TextView
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.ozcanalasalvar.library.R
 
-import androidx.annotation.NonNull;
+open class PickerPopup : BottomSheetDialog, IPopupInterface {
+    @JvmField
+    var confirm: TextView? = null
+    var cancel: TextView? = null
+    private var container: LinearLayout? = null
 
-import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.ozcanalasalvar.library.R;
-
-public class PickerPopup extends BottomSheetDialog implements IPopupInterface {
-
-    public TextView confirm;
-    public TextView cancel;
-    private LinearLayout container;
-
-    public PickerPopup(@NonNull Context context) {
-        super(context);
-        init();
+    constructor(context: Context) : super(context) {
+        init()
     }
 
-    public PickerPopup(@NonNull Context context, int theme) {
-        super(context, theme);
-        init();
+    constructor(context: Context, theme: Int) : super(context, theme) {
+        init()
     }
 
-    private void init() {
-        setContentView(R.layout.picker_popup_layout);
-        confirm = findViewById(R.id.text_confirm);
-        cancel = findViewById(R.id.text_cancel);
-        container = findViewById(R.id.popup_container);
-        cancel.setOnClickListener(view -> dismiss());
+    private fun init() {
+        setContentView(R.layout.picker_popup_layout)
+        confirm = findViewById(R.id.text_confirm)
+        cancel = findViewById(R.id.text_cancel)
+        container = findViewById(R.id.popup_container)
+        cancel!!.setOnClickListener { view: View? -> dismiss() }
     }
 
-
-    @Override
-    public void addView(View view) {
-        container.addView(view);
+    override fun addView(view: View?) {
+        container!!.addView(view)
     }
 }

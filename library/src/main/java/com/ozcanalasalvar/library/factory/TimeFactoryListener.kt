@@ -1,8 +1,6 @@
-package com.ozcanalasalvar.library.factory;
+package com.ozcanalasalvar.library.factory
 
-public interface TimeFactoryListener {
-
-    void onHourChanged(int hour);
-
-    void onMinuteChanged(int minute);
+interface TimeFactoryListener {
+    fun onHourChanged(hour: Int)
+    fun onMinuteChanged(minute: Int)
 }

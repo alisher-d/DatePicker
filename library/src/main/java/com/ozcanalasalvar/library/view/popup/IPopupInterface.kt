@@ -1,8 +1,7 @@
-package com.ozcanalasalvar.library.view.popup;
+package com.ozcanalasalvar.library.view.popup
 
-import android.view.View;
+import android.view.View
 
-public interface IPopupInterface {
-
-    void addView(View view);
+interface IPopupInterface {
+    fun addView(view: View?)
 }

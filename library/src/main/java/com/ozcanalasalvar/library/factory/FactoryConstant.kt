@@ -1,10 +1,10 @@
-package com.ozcanalasalvar.library.factory;
+package com.ozcanalasalvar.library.factory
 
-public class FactoryConstant {
-    public static final int MIN_YEAR = 1970;
-    public static final int MIN_MONTH = 0;//max 11
-    public static final int MAX_YEAR = 2050;
-    public static final int MAX_MONTH = 11;
-    public static final int HOUR24 = 0;
-    public static final int HOUR12 = 1;
+object FactoryConstant {
+    const val MIN_YEAR = 1970
+    const val MIN_MONTH = 0 //max 11
+    const val MAX_YEAR = 2050
+    const val MAX_MONTH = 11
+    const val HOUR24 = 0
+    const val HOUR12 = 1
 }

@@ -1,39 +1,34 @@
-package com.ozcanalasalvar.library.factory;
+package com.ozcanalasalvar.library.factory
 
-import com.ozcanalasalvar.library.utils.DateUtils;
+import com.ozcanalasalvar.library.utils.DateUtils
 
-public class TimeFactory {
-
-    private int hour;
-    private int minute;
-    private TimeFactoryListener listener;
-
-    public TimeFactory(TimeFactoryListener listener) {
-        this.listener = listener;
-        this.hour = DateUtils.getCurrentHour();
-        this.minute = DateUtils.getCurrentMinute();
+class TimeFactory(private val listener: TimeFactoryListener) {
+    private var hour: Int
+    private var minute: Int
+    fun getHour(): Int {
+        return hour
     }
 
-    public int getHour() {
-        return hour;
+    fun setHour(hour: Int) {
+        var hour = hour
+        if (hour > 23) hour = 23
+        this.hour = hour
+        listener.onHourChanged(hour)
     }
 
-    public void setHour(int hour) {
-        if (hour > 23)
-            hour = 23;
-        this.hour = hour;
-        listener.onHourChanged(hour);
+    fun getMinute(): Int {
+        return minute
     }
 
-    public int getMinute() {
-        return minute;
+    fun setMinute(minute: Int) {
+        var minute = minute
+        if (minute > 59) minute = 59
+        this.minute = minute
+        listener.onMinuteChanged(minute)
     }
 
-    public void setMinute(int minute) {
-        if (minute > 59)
-            minute = 59;
-        this.minute = minute;
-        listener.onMinuteChanged(minute);
+    init {
+        hour = DateUtils.currentHour
+        minute = DateUtils.currentMinute
     }
-
 }
